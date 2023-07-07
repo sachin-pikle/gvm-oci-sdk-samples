@@ -1,0 +1,808 @@
+[
+  {
+    "name":"[B"
+  },
+  {
+    "name":"[Ljava.lang.Class;"
+  },
+  {
+    "name":"[Ljava.lang.String;"
+  },
+  {
+    "name":"[Lsun.security.pkcs.SignerInfo;"
+  },
+  {
+    "name":"com.fasterxml.jackson.databind.ext.Java7HandlersImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.fasterxml.jackson.databind.ext.Java7SupportImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.oracle.bmc.auth.internal.JWK",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.auth.internal.X509FederationClient$SecurityToken",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.auth.internal.X509FederationClient$X509FederationRequest",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"getCertificate","parameterTypes":[] }, 
+      {"name":"getFingerprintAlgorithm","parameterTypes":[] }, 
+      {"name":"getIntermediateCertificates","parameterTypes":[] }, 
+      {"name":"getPublicKey","parameterTypes":[] }, 
+      {"name":"getPurpose","parameterTypes":[] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.Instance$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"agentConfig","parameterTypes":["com.oracle.bmc.core.model.InstanceAgentConfig"] }, 
+      {"name":"availabilityConfig","parameterTypes":["com.oracle.bmc.core.model.InstanceAvailabilityConfig"] }, 
+      {"name":"availabilityDomain","parameterTypes":["java.lang.String"] }, 
+      {"name":"build","parameterTypes":[] }, 
+      {"name":"capacityReservationId","parameterTypes":["java.lang.String"] }, 
+      {"name":"compartmentId","parameterTypes":["java.lang.String"] }, 
+      {"name":"dedicatedVmHostId","parameterTypes":["java.lang.String"] }, 
+      {"name":"definedTags","parameterTypes":["java.util.Map"] }, 
+      {"name":"displayName","parameterTypes":["java.lang.String"] }, 
+      {"name":"extendedMetadata","parameterTypes":["java.util.Map"] }, 
+      {"name":"faultDomain","parameterTypes":["java.lang.String"] }, 
+      {"name":"freeformTags","parameterTypes":["java.util.Map"] }, 
+      {"name":"id","parameterTypes":["java.lang.String"] }, 
+      {"name":"imageId","parameterTypes":["java.lang.String"] }, 
+      {"name":"instanceOptions","parameterTypes":["com.oracle.bmc.core.model.InstanceOptions"] }, 
+      {"name":"ipxeScript","parameterTypes":["java.lang.String"] }, 
+      {"name":"isCrossNumaNode","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"launchMode","parameterTypes":["com.oracle.bmc.core.model.Instance$LaunchMode"] }, 
+      {"name":"launchOptions","parameterTypes":["com.oracle.bmc.core.model.LaunchOptions"] }, 
+      {"name":"lifecycleState","parameterTypes":["com.oracle.bmc.core.model.Instance$LifecycleState"] }, 
+      {"name":"metadata","parameterTypes":["java.util.Map"] }, 
+      {"name":"platformConfig","parameterTypes":["com.oracle.bmc.core.model.PlatformConfig"] }, 
+      {"name":"preemptibleInstanceConfig","parameterTypes":["com.oracle.bmc.core.model.PreemptibleInstanceConfigDetails"] }, 
+      {"name":"region","parameterTypes":["java.lang.String"] }, 
+      {"name":"shape","parameterTypes":["java.lang.String"] }, 
+      {"name":"shapeConfig","parameterTypes":["com.oracle.bmc.core.model.InstanceShapeConfig"] }, 
+      {"name":"sourceDetails","parameterTypes":["com.oracle.bmc.core.model.InstanceSourceDetails"] }, 
+      {"name":"systemTags","parameterTypes":["java.util.Map"] }, 
+      {"name":"timeCreated","parameterTypes":["java.util.Date"] }, 
+      {"name":"timeMaintenanceRebootDue","parameterTypes":["java.util.Date"] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.Instance$LaunchMode",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.Instance$LifecycleState",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceAgentConfig$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"areAllPluginsDisabled","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"build","parameterTypes":[] }, 
+      {"name":"isManagementDisabled","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"isMonitoringDisabled","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"pluginsConfig","parameterTypes":["java.util.List"] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceAgentPluginConfigDetails$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceAgentPluginConfigDetails$DesiredState",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceAvailabilityConfig$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"build","parameterTypes":[] }, 
+      {"name":"isLiveMigrationPreferred","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"recoveryAction","parameterTypes":["com.oracle.bmc.core.model.InstanceAvailabilityConfig$RecoveryAction"] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceAvailabilityConfig$RecoveryAction",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceOptions$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"areLegacyImdsEndpointsDisabled","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"build","parameterTypes":[] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceShapeConfig$BaselineOcpuUtilization",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceShapeConfig$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"baselineOcpuUtilization","parameterTypes":["com.oracle.bmc.core.model.InstanceShapeConfig$BaselineOcpuUtilization"] }, 
+      {"name":"build","parameterTypes":[] }, 
+      {"name":"gpuDescription","parameterTypes":["java.lang.String"] }, 
+      {"name":"gpus","parameterTypes":["java.lang.Integer"] }, 
+      {"name":"localDiskDescription","parameterTypes":["java.lang.String"] }, 
+      {"name":"localDisks","parameterTypes":["java.lang.Integer"] }, 
+      {"name":"localDisksTotalSizeInGBs","parameterTypes":["java.lang.Float"] }, 
+      {"name":"maxVnicAttachments","parameterTypes":["java.lang.Integer"] }, 
+      {"name":"memoryInGBs","parameterTypes":["java.lang.Float"] }, 
+      {"name":"networkingBandwidthInGbps","parameterTypes":["java.lang.Float"] }, 
+      {"name":"ocpus","parameterTypes":["java.lang.Float"] }, 
+      {"name":"processorDescription","parameterTypes":["java.lang.String"] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceSourceDetails",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true
+  },
+  {
+    "name":"com.oracle.bmc.core.model.InstanceSourceViaImageDetails$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"bootVolumeSizeInGBs","parameterTypes":["java.lang.Long"] }, 
+      {"name":"bootVolumeVpusPerGB","parameterTypes":["java.lang.Long"] }, 
+      {"name":"build","parameterTypes":[] }, 
+      {"name":"imageId","parameterTypes":["java.lang.String"] }, 
+      {"name":"kmsKeyId","parameterTypes":["java.lang.String"] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.LaunchOptions$BootVolumeType",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.LaunchOptions$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"bootVolumeType","parameterTypes":["com.oracle.bmc.core.model.LaunchOptions$BootVolumeType"] }, 
+      {"name":"build","parameterTypes":[] }, 
+      {"name":"firmware","parameterTypes":["com.oracle.bmc.core.model.LaunchOptions$Firmware"] }, 
+      {"name":"isConsistentVolumeNamingEnabled","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"isPvEncryptionInTransitEnabled","parameterTypes":["java.lang.Boolean"] }, 
+      {"name":"networkType","parameterTypes":["com.oracle.bmc.core.model.LaunchOptions$NetworkType"] }, 
+      {"name":"remoteDataVolumeType","parameterTypes":["com.oracle.bmc.core.model.LaunchOptions$RemoteDataVolumeType"] }
+    ]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.LaunchOptions$Firmware",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.LaunchOptions$NetworkType",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.LaunchOptions$RemoteDataVolumeType",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"create","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"com.oracle.bmc.core.model.PlatformConfig",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true
+  },
+  {
+    "name":"com.oracle.bmc.core.model.PreemptibleInstanceConfigDetails$Builder",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true
+  },
+  {
+    "name":"com.oracle.bmc.core.model.PreemptionAction",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true
+  },
+  {
+    "name":"com.oracle.bmc.http.client.internal.ExplicitlySetBmcModel",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"com.oracle.bmc.http.client.jersey.internal.DaemonClientAsyncExecutorProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["int"] }]
+  },
+  {
+    "name":"com.oracle.bmc.http.internal.BmcEnum",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"com.sun.crypto.provider.AESCipher$General",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.ARCFOURCipher",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.DESCipher",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.DESedeCipher",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.DHParameters",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.GaloisCounterMode$AESGCM",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.TlsKeyMaterialGenerator",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.TlsMasterSecretGenerator",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.crypto.provider.TlsPrfGenerator$V12",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"java.awt.image.RenderedImage"
+  },
+  {
+    "name":"java.lang.Object",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"java.lang.String"
+  },
+  {
+    "name":"java.security.AlgorithmParametersSpi"
+  },
+  {
+    "name":"java.security.KeyStoreSpi"
+  },
+  {
+    "name":"java.security.SecureRandomParameters"
+  },
+  {
+    "name":"java.security.interfaces.ECPrivateKey"
+  },
+  {
+    "name":"java.security.interfaces.ECPublicKey"
+  },
+  {
+    "name":"java.security.interfaces.RSAPrivateKey"
+  },
+  {
+    "name":"java.security.interfaces.RSAPublicKey"
+  },
+  {
+    "name":"java.util.Date"
+  },
+  {
+    "name":"javax.activation.DataSource"
+  },
+  {
+    "name":"javax.inject.Named",
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"value","parameterTypes":[] }]
+  },
+  {
+    "name":"javax.inject.Singleton",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"javax.naming.InitialContext",
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }, 
+      {"name":"lookup","parameterTypes":["java.lang.String"] }
+    ]
+  },
+  {
+    "name":"javax.security.auth.x500.X500Principal",
+    "fields":[{"name":"thisX500Name"}],
+    "methods":[{"name":"<init>","parameterTypes":["sun.security.x509.X500Name"] }]
+  },
+  {
+    "name":"javax.xml.transform.Source"
+  },
+  {
+    "name":"javax.xml.transform.dom.DOMSource"
+  },
+  {
+    "name":"javax.xml.transform.sax.SAXSource"
+  },
+  {
+    "name":"javax.xml.transform.stream.StreamSource"
+  },
+  {
+    "name":"org.apache.commons.logging.LogFactory"
+  },
+  {
+    "name":"org.apache.commons.logging.impl.Jdk14Logger",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"org.apache.commons.logging.impl.Log4JLogger"
+  },
+  {
+    "name":"org.apache.commons.logging.impl.LogFactoryImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.commons.logging.impl.WeakHashtable",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.http.client.config.RequestConfig"
+  },
+  {
+    "name":"org.glassfish.hk2.internal.PerThreadContext",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true
+  },
+  {
+    "name":"org.glassfish.jersey.apache.connector.ApacheConnector"
+  },
+  {
+    "name":"org.glassfish.jersey.client.ChunkedInputReader",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.client.ClientAsyncExecutor",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.client.ClientBackgroundScheduler",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.client.DefaultClientAsyncExecutorProvider",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.client.DefaultClientBackgroundSchedulerProvider",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.client.JerseyClientBuilder",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.inject.hk2.ContextInjectionResolverImpl",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.inject.hk2.Hk2InjectionManagerFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.inject.hk2.Hk2RequestScope",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.inject.hk2.InstanceSupplierFactoryBridge",
+    "methods":[{"name":"provide","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.inject.hk2.JerseyErrorService",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.inject.hk2.RequestContext",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["org.glassfish.jersey.process.internal.RequestScope"] }]
+  },
+  {
+    "name":"org.glassfish.jersey.internal.RuntimeDelegateImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.internal.config.ExternalPropertiesAutoDiscoverable",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.internal.config.ExternalPropertiesConfigurationFeature",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.internal.inject.Custom",
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.logging.LoggingFeatureAutoDiscoverable",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.AbstractFormProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.AbstractMessageReaderWriterProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.BasicTypesMessageProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.ByteArrayProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.DataSourceProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.EnumMessageProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.FileProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.FormMultivaluedMapProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.FormProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.InputStreamProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.ReaderProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.RenderedImageProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.SourceProvider$DomSourceReader",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["javax.inject.Provider"] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.SourceProvider$SaxSourceReader",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["javax.inject.Provider"] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.SourceProvider$SourceWriter",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["javax.inject.Provider","javax.inject.Provider"] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.SourceProvider$StreamSourceReader",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.StreamingOutputProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.message.internal.StringMessageProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.process.internal.RequestScope",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.spi.AbstractThreadPoolProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true
+  },
+  {
+    "name":"org.glassfish.jersey.spi.ScheduledThreadPoolExecutorProvider",
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"preDestroy","parameterTypes":[] }]
+  },
+  {
+    "name":"org.glassfish.jersey.spi.ThreadPoolExecutorProvider",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"preDestroy","parameterTypes":[] }]
+  },
+  {
+    "name":"org.jvnet.hk2.internal.DynamicConfigurationServiceImpl",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["org.glassfish.hk2.api.ServiceLocator"] }]
+  },
+  {
+    "name":"org.jvnet.hk2.internal.ServiceLocatorRuntimeImpl",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "queryAllDeclaredConstructors":true,
+    "methods":[{"name":"<init>","parameterTypes":["org.glassfish.hk2.api.ServiceLocator"] }]
+  },
+  {
+    "name":"sun.security.pkcs12.PKCS12KeyStore",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.DSA$SHA224withDSA",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.DSA$SHA256withDSA",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.JavaKeyStore$JKS",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.NativePRNG",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.SHA",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.SHA2$SHA224",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.SHA2$SHA256",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.SHA5$SHA384",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.SHA5$SHA512",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.X509Factory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.provider.certpath.PKIXCertPathValidator",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.PSSParameters",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.RSAKeyFactory$Legacy",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.RSAKeyPairGenerator$Legacy",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.RSAPSSSignature",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.RSASignature$SHA224withRSA",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.RSASignature$SHA256withRSA",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.rsa.RSASignature$SHA512withRSA",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.ssl.SSLContextImpl$TLSContext",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.security.util.ObjectIdentifier"
+  },
+  {
+    "name":"sun.security.x509.AuthorityInfoAccessExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.AuthorityKeyIdentifierExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.BasicConstraintsExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.CRLDistributionPointsExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.CertificateExtensions"
+  },
+  {
+    "name":"sun.security.x509.CertificatePoliciesExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.ExtendedKeyUsageExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.IssuerAlternativeNameExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.KeyUsageExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.NetscapeCertTypeExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.PrivateKeyUsageExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.SubjectAlternativeNameExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  },
+  {
+    "name":"sun.security.x509.SubjectKeyIdentifierExtension",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+  }
+  ]
+  
