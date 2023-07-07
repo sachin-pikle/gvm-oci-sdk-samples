@@ -12,6 +12,15 @@
 java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
 ```
 
+## Capture reachability metadata
+
+```
+java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
+```
+
+Move/merge the metadata in `src/main/resources/META-INF/native-image` before building a native executable.
+
+
 ## Build a native executable
 
 ```
