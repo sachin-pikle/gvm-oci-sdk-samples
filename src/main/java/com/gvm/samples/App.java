@@ -27,6 +27,6 @@ public class App {
     public static void main( String[] args ) throws Exception {
 
         List<String> instanceIds = Instances.listInstances(args[0]);
-        System.out.println("Compute instance ids: " + instanceIds);       
+        System.out.println("In App.java - Compute instance ids: " + instanceIds);       
     }
 }
