@@ -147,8 +147,6 @@
                 <arg>-H:+StaticExecutableWithDynamicLibC</arg>
                 <arg>--enable-url-protocols=https,http</arg>
                 <arg>--report-unsupported-elements-at-runtime</arg>
-                <!-- For Quick Build (22.1+) -->
-		            <arg>-Ob</arg>
               </buildArgs>
               <!-- Start: Workaround for 22.2: Disable the default Java Module Path using USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM -->
               <environment>
