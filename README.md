@@ -8,8 +8,16 @@
 
 ## Run fat jar
 
+### Valid Compartment OCID
+
 ```
 java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
+```
+
+### Invalid Compartment OCID
+
+```
+java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
 ```
 
 ## Capture reachability metadata
@@ -102,7 +110,7 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.logging.impl.Log
 Solution: Missing reachability metadata. Use tracing agent to generate it.
 
 
-3. Native image build fails with the following error:
+3. Native image build fails with the following error with Oracle GraalVM for JDK 17 and above:
 
 ```
 Error: Class-path entry file:///Users/spikle/.m2/repository/org/graalvm/sdk/graal-sdk/21.3.1/graal-sdk-21.3.1.jar contains class org.graalvm.nativeimage.impl.CTypeConversionSupport. This class is part of the image builder itself (in jrt:/org.graalvm.sdk) and must not be passed via -cp. This can be caused by a fat-jar that illegally includes svm.jar (or graal-sdk.jar) due to its build-time dependency on it. As a workaround, -H:+AllowDeprecatedBuilderClassesOnImageClasspath allows turning this error into a warning. Note that this option is deprecated and will be removed in a future version.
@@ -125,10 +133,26 @@ com.oracle.svm.driver.NativeImage$NativeImageError
 [INFO] ------------------------------------------------------------------------
 ```
 
-Solution: Add `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` to the pom.xml before running the native image build.
+Solution: Add `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` to the pom.xml before running the native image build with Oracle GraalVM for JDK 17 and above.
 
 
-4. Native image build fails with `DARWIN does not support building static executable images` on MacOS.
+4. Native image build fails with the following error with GraalVM Enterprise Edition 22.3.x and lower:
+
+```
+Error: Could not find option 'AllowDeprecatedBuilderClassesOnImageClasspath'. Use -H:PrintFlags= to list all available options.
+Error: Image build request failed with exit status 1
+com.oracle.svm.driver.NativeImage$NativeImageError: Image build request failed with exit status 1
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.showError(NativeImage.java:1730)
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.build(NativeImage.java:1427)
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.performBuild(NativeImage.java:1387)
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.main(NativeImage.java:1374)
+```
+
+Solution: Comment `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` in the pom.xml before running the native image build with GraalVM Enterprise Edition 22.3.x and lower.
+
+
+
+5. Native image build fails with `DARWIN does not support building static executable images` on MacOS.
 
 ```
 [1/8] Initializing...                                                                                    (7.1s @ 0.22GB)
@@ -165,10 +189,54 @@ com.oracle.svm.driver.NativeImage$NativeImageError
 [INFO] ------------------------------------------------------------------------
 ```
 
-Solution: Comment `<arg>-H:+StaticExecutableWithDynamicLibC</arg>` in the pom.xml before running the native image build.
+Solution: Comment `<arg>-H:+StaticExecutableWithDynamicLibC</arg>` in the pom.xml before running the native image build on MacOS.
+
+6. Native image build fails with the following error:
+
+```
+[1/8] Initializing...                                                                                    (0.0s @ 0.16GB)
+------------------------------------------------------------------------------------------------------------------------
+                        0.3s (5.9% of total time) in 11 GCs | Peak RSS: 0.61GB | CPU load: 4.47
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /Users/spikle/Documents/code/graal/gvm-oci-sdk-samples/target/svm_err_b_20230808T111937.203_pid10673.md (build_info)
+========================================================================================================================
+Failed generating 'my-app' after 3.3s.
+
+The build process encountered an unexpected error:
+
+java.lang.IllegalAccessError: class com.oracle.bmc.graalvm.BouncyCastleFeature (in unnamed module @0x4e5da590) cannot access class org.graalvm.nativeimage.impl.RuntimeClassInitializationSupport (in module org.graalvm.sdk) because module org.graalvm.sdk does not export org.graalvm.nativeimage.impl to unnamed module @0x4e5da590
+        at com.oracle.bmc.graalvm.BouncyCastleFeature.afterRegistration(BouncyCastleFeature.java:23)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGenerator.lambda$setupNativeImage$14(NativeImageGenerator.java:879)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.FeatureHandler.forEachFeature(FeatureHandler.java:86)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGenerator.setupNativeImage(NativeImageGenerator.java:879)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGenerator.doRun(NativeImageGenerator.java:579)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGenerator.run(NativeImageGenerator.java:539)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGeneratorRunner.buildImage(NativeImageGeneratorRunner.java:408)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGeneratorRunner.build(NativeImageGeneratorRunner.java:612)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGeneratorRunner.start(NativeImageGeneratorRunner.java:134)
+        at org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGeneratorRunner.main(NativeImageGeneratorRunner.java:94)
+
+com.oracle.svm.driver.NativeImage$NativeImageError
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.showError(NativeImage.java:1982)
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.build(NativeImage.java:1598)
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.performBuild(NativeImage.java:1557)
+        at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.main(NativeImage.java:1531)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+```
+
+Solution: Add the following to your pom.xml:
+
+```
+              <environment>
+                <USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM>false</USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM>
+              </environment>
+```
 
 
-5. In case of invalid compartment OCID, native executable fails to run with the following error:
+7. In case of invalid compartment OCID, native executable fails to run with the following error:
 
 ```
 Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.oracle.bmc.http.internal.ResponseHelper$ErrorCodeAndMessage` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
