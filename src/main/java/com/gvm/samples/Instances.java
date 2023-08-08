@@ -28,13 +28,15 @@ import com.oracle.bmc.core.model.Instance;
 import com.oracle.bmc.core.requests.ListInstancesRequest;
 import com.oracle.bmc.core.responses.ListInstancesResponse;
 
-/**
- * List instances in a given compartment.
- *
- */
+
 public class Instances {
     private static final String PROFILE_DEFAULT = "DEFAULT";
 
+
+    /**
+     * List instances in a given compartment.
+     *
+     */    
     public static List<String> listInstances(String compId) {
 
         List<String> instanceIds = null;

@@ -238,6 +238,10 @@
     "queryAllDeclaredMethods":true
   },
   {
+    "name":"com.oracle.bmc.http.internal.ResponseHelper$ErrorCodeAndMessage",
+    "allDeclaredConstructors": true
+  },
+  {
     "name":"com.sun.crypto.provider.AESCipher$General",
     "methods":[{"name":"<init>","parameterTypes":[] }]
   },
