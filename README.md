@@ -2,8 +2,8 @@
 
 ## Use Netty/Micronaut Serializer
 
-[Use Netty/Micronaut Serializer](./netty/README.md)
+[Use Netty/Micronaut Serializer](./netty/)
 
 ## Use Jersey
 
-[Use Jersey](./jersey/README.md)
+[Use Jersey](./jersey/)
