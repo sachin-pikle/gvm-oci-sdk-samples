@@ -248,6 +248,6 @@ Solution: Add the following element to your reflect-config.json:
 ```
   {
     "name":"com.oracle.bmc.http.internal.ResponseHelper$ErrorCodeAndMessage",
-    "allDeclaredConstructors": true
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.util.Map"] }]
   }
 ```
