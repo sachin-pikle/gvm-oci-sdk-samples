@@ -76,7 +76,7 @@ time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
 
 You'll need this step only if you run into issues related to missing metadata and need to use the tracing agent to capture metadata for each scenario. Below is an example of listing instances given a valid compartment OCID.
 
-### Valid Compartment OCID
+#### Valid Compartment OCID
 
 ```
 java -agentlib:native-image-agent=config-output-dir=temp/META-INF/native-image -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
