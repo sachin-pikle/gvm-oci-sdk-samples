@@ -4,7 +4,7 @@
 
 ### MacOS and Linux
 
-Use SDKMAN:
+Use [SDKMAN!](https://sdkman.io/install).
 
 ```
 sdk install java 17.0.7-graal
