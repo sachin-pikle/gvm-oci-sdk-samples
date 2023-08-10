@@ -72,7 +72,7 @@ time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
 <arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>
 ```
 
-### Capture reachability metadata
+### [Optional] Capture reachability metadata
 
 You'll need this step only if you run into issues related to missing metadata and need to use the tracing agent to capture metadata for each scenario. Below is an example of listing instances given a valid compartment OCID.
 
