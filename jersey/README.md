@@ -11,13 +11,13 @@
 ### Valid Compartment OCID
 
 ```
-java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
+time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
 ```
 
 ### Invalid Compartment OCID
 
 ```
-java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
+time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
 ```
 
 ## Capture reachability metadata
@@ -45,14 +45,29 @@ Move/merge the metadata in `src/main/resources/META-INF/native-image` before bui
 ### Valid Compartment OCID
 
 ```
-./target/my-app ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
+time ./target/my-app ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
 ```
 
 ### Invalid Compartment OCID
 
 ```
-./target/my-app abcd
+time ./target/my-app abcd
 ```
+
+## File size
+
+```
+ls -lh target | grep my-app
+```
+
+The output should be similar to:
+
+```
+-rwxr-xr-x  1 user  group    64M Aug 10 10:49 my-app
+-rw-r--r--  1 user  group    21M Aug 10 10:42 my-app-1.0-SNAPSHOT-jar-with-dependencies.jar
+...
+```
+
 
 ## Troubleshooting
 
