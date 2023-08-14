@@ -44,7 +44,7 @@ public class ObjectStorageSyncExample {
             configFile = ConfigFileReader.parse(CONFIG_LOCATION, CONFIG_PROFILE);
         } catch (java.io.IOException ioe) {
             System.err.println("ioe.getMessage() " + ioe.getMessage());
-            ioe.printStackTrace();
+            // ioe.printStackTrace();
             return bucketNames;
         }
         provider = new ConfigFileAuthenticationDetailsProvider(configFile);
@@ -81,7 +81,7 @@ public class ObjectStorageSyncExample {
 
         } catch (Exception e) {
             System.err.println("e.getMessage() " + e.getMessage());
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
         System.out.println("Object Storage bucket names: " + bucketNames);
