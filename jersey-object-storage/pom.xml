@@ -129,6 +129,7 @@
                 <arg>-H:+ReportExceptionStackTraces</arg>
                 <!-- MacOS doesn't support building static native executables. Comment this build arg on MacOS -->
                 <!-- <arg>-H:+StaticExecutableWithDynamicLibC</arg> -->
+                <arg>--enable-url-protocols=https,http</arg>
                 <!-- AllowDeprecatedBuilderClassesOnImageClasspath is available in Oracle GraalVM for JDK 17 and above. Comment this build arg for older versions of GraalVM  -->
                 <arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>
               </buildArgs>

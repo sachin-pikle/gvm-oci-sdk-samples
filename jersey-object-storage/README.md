@@ -328,3 +328,26 @@ Solution: Add the following element to your reflect-config.json:
     "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.util.Map"] }]
   }
 ```
+
+8. In case of Instance Principals authentication, Native executable fails to run with the following error:
+
+```
+Exception in thread "main" java.lang.IllegalArgumentException: The metadata service url is invalid.
+        at com.oracle.bmc.auth.AbstractFederationClientAuthenticationDetailsProviderBuilder.autoDetectCertificatesUsingMetadataUrl(AbstractFederationClientAuthenticationDetailsProviderBuilder.java:333)
+        at com.oracle.bmc.auth.AbstractFederationClientAuthenticationDetailsProviderBuilder.autoDetectUsingMetadataUrl(AbstractFederationClientAuthenticationDetailsProviderBuilder.java:254)
+        at com.oracle.bmc.auth.InstancePrincipalsAuthenticationDetailsProvider$InstancePrincipalsAuthenticationDetailsProviderBuilder.build(InstancePrincipalsAuthenticationDetailsProvider.java:102)
+        at com.gvm.samples.ObjectStorageSyncExample.listBuckets(ObjectStorageSyncExample.java:52)
+        at com.gvm.samples.App.main(App.java:14)
+Caused by: java.net.MalformedURLException: Accessing an URL protocol that was not enabled. The URL protocol http is supported but not enabled by default. It must be enabled by adding the --enable-url-protocols=http option to the native-image command.
+        at com.oracle.svm.core.jdk.JavaNetSubstitutions.unsupported(JavaNetSubstitutions.java:254)
+        at com.oracle.svm.core.jdk.JavaNetSubstitutions.getURLStreamHandler(JavaNetSubstitutions.java:228)
+        at java.base@17.0.7/java.net.URL.getURLStreamHandler(URL.java:80)
+        at java.base@17.0.7/java.net.URL.<init>(URL.java:680)
+        at java.base@17.0.7/java.net.URL.<init>(URL.java:569)
+        at java.base@17.0.7/java.net.URL.<init>(URL.java:516)
+        at com.oracle.bmc.auth.AbstractFederationClientAuthenticationDetailsProviderBuilder.getMetadataResourceDetails(AbstractFederationClientAuthenticationDetailsProviderBuilder.java:439)
+        at com.oracle.bmc.auth.AbstractFederationClientAuthenticationDetailsProviderBuilder.autoDetectCertificatesUsingMetadataUrl(AbstractFederationClientAuthenticationDetailsProviderBuilder.java:310)
+        ... 4 more
+```
+
+Solution: Add `<arg>--enable-url-protocols=https,http</arg>` in the pom.xml before running the native image build while using Instance Principals authentication on an OCI Compute Instance.
