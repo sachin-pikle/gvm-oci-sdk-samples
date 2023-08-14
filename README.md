@@ -1,9 +1,11 @@
-# gvm-oci-sdk-samples
+# OCI SDK GraalVM Native Image samples
 
 ## Use Netty/Micronaut Serializer
 
-[Use Netty/Micronaut Serializer](./netty/)
+- [Compute Instance](./netty-compute-instance/)
+- [Object Storage](./netty-object-storage/)
 
 ## Use Jersey
 
-[Use Jersey](./jersey/)
+- [Compute Instance](./jersey-compute-instance/)
+- [Object Storage](./jersey-object-storage/)
