@@ -10,8 +10,8 @@ public class App {
 
     public static void main( String[] args ) throws Exception {
 
-        System.out.println("********** In App.java - Before calling listInstances() **********");       
-        List<String> instanceIds = Instances.listInstances(args[0]);
-        System.out.println("********** In App.java - After calling listInstances() **********");       
+        System.out.println("********** In App.java - Before calling ComputeInstancesExample.listInstances() **********");       
+        List<String> instanceIds = ComputeInstancesExample.listInstances(args[0]);
+        System.out.println("********** In App.java - After calling ComputeInstancesExample.listInstances() **********");       
     }
 }
