@@ -318,3 +318,24 @@ Caused by: java.net.MalformedURLException: Accessing an URL protocol that was no
 ```
 
 Solution: Add `<arg>--enable-url-protocols=https,http</arg>` in the pom.xml before running the native image build while using Instance Principals authentication on an OCI Compute Instance.
+
+
+8. Native executable fails to run with the following error:
+
+```
+Exception in thread "main" java.lang.NoClassDefFoundError: Could not initialize class com.oracle.bmc.ClientRuntime$RuntimeInstance
+        at com.oracle.bmc.ClientRuntime.getRuntime(ClientRuntime.java:108)
+        at com.oracle.bmc.model.BmcException.getMessage(BmcException.java:246)
+        at com.gvm.samples.ObjectStorageSyncExample.listBuckets(ObjectStorageSyncExample.java:83)
+        at com.gvm.samples.App.main(App.java:14)
+```
+
+Solution: Add a dependency on `oci-java-sdk-addons-graalvm` in the pom.xml before running the native image build:
+
+```
+    <!-- OCI SDK Addons for GraalVM Native Image reachability metadata. For use with GraalVM Native Image. -->
+    <dependency>
+      <groupId>com.oracle.oci.sdk</groupId>
+      <artifactId>oci-java-sdk-addons-graalvm</artifactId>
+    </dependency>
+```
