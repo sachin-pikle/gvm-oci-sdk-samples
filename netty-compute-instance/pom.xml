@@ -52,11 +52,6 @@
       <groupId>io.micronaut.oraclecloud</groupId>
       <artifactId>micronaut-oraclecloud-bmc-core</artifactId>
     </dependency>
-    <!-- OCI SDK Compute module -->
-    <dependency>
-      <groupId>com.oracle.oci.sdk</groupId>
-      <artifactId>oci-java-sdk-core</artifactId>
-    </dependency>
     <!-- OCI SDK Addons for GraalVM Native Image reachability metadata. For use with GraalVM Native Image. -->
     <dependency>
       <groupId>com.oracle.oci.sdk</groupId>
