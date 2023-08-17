@@ -172,7 +172,7 @@ Solution: Add the following dependency to your pom.xml
     <dependency>
       <groupId>io.micronaut.oraclecloud</groupId>
       <artifactId>micronaut-oraclecloud-bmc-core</artifactId>
-      <version>3.0.2</version>
+      <version>3.0.3</version>
     </dependency>
 ```
 
