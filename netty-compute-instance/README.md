@@ -285,7 +285,7 @@ Solution: Add `<arg>--enable-url-protocols=https,http</arg>` in the pom.xml befo
 Exception in thread "main" java.lang.NoClassDefFoundError: Could not initialize class com.oracle.bmc.ClientRuntime$RuntimeInstance
         at com.oracle.bmc.ClientRuntime.getRuntime(ClientRuntime.java:108)
         at com.oracle.bmc.model.BmcException.getMessage(BmcException.java:246)
-        at com.gvm.samples.ObjectStorageSyncExample.listBuckets(ObjectStorageSyncExample.java:83)
+        at com.gvm.samples.ComputeInstancesExample.listInstances(ComputeInstancesExample.java:70)
         at com.gvm.samples.App.main(App.java:14)
 ```
 
