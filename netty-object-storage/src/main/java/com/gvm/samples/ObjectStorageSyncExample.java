@@ -56,7 +56,8 @@ public class ObjectStorageSyncExample {
         try (ObjectStorageClient client = ObjectStorageClient.builder().build(provider)) {
 
             // Construct GetNamespaceRequest with the given compartmentId.
-            GetNamespaceRequest getNamespaceRequest = GetNamespaceRequest.builder().compartmentId(compartmentId)
+            GetNamespaceRequest getNamespaceRequest = GetNamespaceRequest.builder()
+                    .compartmentId(compartmentId)
                     .build();
             String namespace = client.getNamespace(getNamespaceRequest).getValue();
 
