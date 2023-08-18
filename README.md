@@ -2,10 +2,10 @@
 
 ## Use Netty/Micronaut Serializer
 
-- [Compute Instance](./netty-compute-instance/)
-- [Object Storage](./netty-object-storage/)
+- [Compute Instance](./compute-instance-netty/)
+- [Object Storage](./object-storage-netty/)
 
 ## Use Jersey
 
-- [Compute Instance](./jersey-compute-instance/)
-- [Object Storage](./jersey-object-storage/)
+- [Compute Instance](./compute-instance-jersey/)
+- [Object Storage](./object-storage-jersey/)
