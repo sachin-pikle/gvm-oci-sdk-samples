@@ -4,8 +4,11 @@
 
 - [Compute Instance](./compute-instance-netty/)
 - [Object Storage](./object-storage-netty/)
+- [Function - List Compute Instances](./fn-list-instances-netty/)
+- [Function - List Object Storage Buckets](./fn-list-buckets-netty/)
 
-## Use Jersey
+## Use Jersey/Jackson
 
 - [Compute Instance](./compute-instance-jersey/)
 - [Object Storage](./object-storage-jersey/)
+- [Function - List Compute Instances](./fn-list-instances-jersey/)
