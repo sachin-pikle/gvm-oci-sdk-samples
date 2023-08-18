@@ -1,0 +1,9 @@
+[
+  {
+    "name" : "com.example.fn.ComputeInstancesList",
+    "methods" : [
+      { "name" : "handle" },
+      { "name" : "<init>" }
+    ]
+  }
+]

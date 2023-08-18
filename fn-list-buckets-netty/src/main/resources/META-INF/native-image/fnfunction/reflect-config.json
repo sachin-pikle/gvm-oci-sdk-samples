@@ -1,0 +1,9 @@
+[
+  {
+    "name" : "com.example.fn.ObjectStorageBucketsList",
+    "methods" : [
+      { "name" : "handle" },
+      { "name" : "<init>" }
+    ]
+  }
+]
