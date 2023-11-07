@@ -123,6 +123,7 @@
               <quickBuild>true</quickBuild>
               <buildArgs>
                 <arg>-H:+ReportExceptionStackTraces</arg>
+                <arg>--enable-url-protocols=https,http</arg>
                 <!-- MacOS doesn't support building static native executables. Comment this build arg on MacOS -->
                 <!-- <arg>-H:+StaticExecutableWithDynamicLibC</arg> -->
               </buildArgs>
