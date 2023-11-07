@@ -13,7 +13,8 @@ sdk install java 17.0.9-graal
 ### Oracle Linux on Oracle Cloud Infrastucture (OCI)
 
 ``` shell
-yum -y install graalvm-17-native-image
+sudo dnf -y update
+sudo dnf -y install graalvm-17-native-image
 ```
 
 ### Windows
