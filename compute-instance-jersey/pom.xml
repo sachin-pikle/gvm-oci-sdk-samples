@@ -8,7 +8,8 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
-    <native.maven.plugin.version>0.9.23</native.maven.plugin.version>
+    <native.maven.plugin.version>0.9.28</native.maven.plugin.version>
+    <oci.sdk.version>3.28.0</oci.sdk.version>
     <mainClass>com.gvm.samples.App</mainClass>
   </properties>
   <groupId>com.gvm.samples</groupId>
@@ -21,14 +22,14 @@
           <dependency>
               <groupId>com.oracle.oci.sdk</groupId>
               <artifactId>oci-java-sdk-bom</artifactId>
-              <version>3.20.0</version>
+              <version>${oci.sdk.version}</version>
               <type>pom</type>
               <scope>import</scope>
           </dependency>
           <dependency>
               <groupId>com.oracle.oci.sdk</groupId>
               <artifactId>oci-java-sdk-common-httpclient-jersey</artifactId>
-              <version>3.18.0</version>
+              <version>${oci.sdk.version}</version>
               <type>pom</type>
               <scope>import</scope>
           </dependency>
@@ -46,16 +47,11 @@
     <dependency>
         <groupId>com.oracle.oci.sdk</groupId>
         <artifactId>oci-java-sdk-common-httpclient-jersey</artifactId>
-    </dependency>    
+    </dependency>
     <!-- OCI SDK Compute module -->
     <dependency>
       <groupId>com.oracle.oci.sdk</groupId>
       <artifactId>oci-java-sdk-core</artifactId>
-    </dependency>
-    <!-- OCI SDK Addons for GraalVM Native Image reachability metadata. For use with GraalVM Native Image. -->
-    <dependency>
-      <groupId>com.oracle.oci.sdk</groupId>
-      <artifactId>oci-java-sdk-addons-graalvm</artifactId>
     </dependency>
   </dependencies>
 
@@ -92,7 +88,7 @@
       </plugins>
     </pluginManagement>
   </build>
-  
+
   <profiles>
     <profile>
       <id>native</id>
@@ -129,15 +125,7 @@
                 <arg>-H:+ReportExceptionStackTraces</arg>
                 <!-- MacOS doesn't support building static native executables. Comment this build arg on MacOS -->
                 <!-- <arg>-H:+StaticExecutableWithDynamicLibC</arg> -->
-                <arg>--enable-url-protocols=https,http</arg>
-                <!-- AllowDeprecatedBuilderClassesOnImageClasspath is available in Oracle GraalVM for JDK 17 and above. Comment this build arg for older versions of GraalVM  -->
-                <arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>
               </buildArgs>
-              <!-- Start: Workaround for 22.2: Disable the default Java Module Path using USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM -->
-              <environment>
-                <USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM>false</USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM>
-              </environment>
-              <!-- End: Workaround for 22.2: Disable the default Java Module Path using USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM -->
               <metadataRepository>
                 <enabled>true</enabled>
               </metadataRepository>

@@ -6,13 +6,13 @@
 
 Use [SDKMAN!](https://sdkman.io/install).
 
-```
-sdk install java 17.0.7-graal
+``` shell
+sdk install java 17.0.9-graal
 ```
 
 ### Oracle Linux on Oracle Cloud Infrastucture (OCI)
 
-```
+``` shell
 yum -y install graalvm-17-native-image
 ```
 
@@ -26,14 +26,20 @@ Go to https://www.graalvm.org/downloads
 Add the following to the [pom.xml](pom.xml):
 
 - dependency: `oci-java-sdk-common-httpclient-jersey` to use Jersey as the transport layer
-- dependency: `oci-java-sdk-addons-graalvm` to use GraalVM Native Image with OCI SDK
+- dependency: `oci-java-sdk-core` to use the OCI SDK Compute module
 
+## OCI Authentication
+
+The boolean flag `IP_AUTH` defined in [ComputeInstancesExample.java](src/main/java/com/gvm/samples/ComputeInstancesExample.java#L26) is used to toggle between Config File and Instance Principal Authentication.
+
+- Set it to 'false' (default) to use Config File Authentication when running on local.
+- Set it to 'true' to use Instance Principal Authentication when running in an OCI Instance.
 
 ## Fat Jar
 
 ### Build fat jar
 
-```
+``` shell
 ./mvnw clean compile assembly:single
 ```
 
@@ -41,13 +47,13 @@ Add the following to the [pom.xml](pom.xml):
 
 #### Valid Compartment OCID
 
-```
+``` shell
 time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
 ```
 
 #### Invalid Compartment OCID
 
-```
+``` shell
 time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
 ```
 
@@ -57,87 +63,79 @@ time java -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
 ### Native Image build args
 
 #### Mostly static native executables
+
 - Supported on Linux. Uncomment the following in the pom.xml while building and testing on Linux.
 - Not supported on MacOS. Comment the following in the pom.xml while building and testing on MacOS.
 
-```
+``` xml
 <arg>-H:+StaticExecutableWithDynamicLibC</arg>
 ```
 
-#### AllowDeprecatedBuilderClassesOnImageClasspath
-- Available in Oracle GraalVM for JDK 17 and above. Uncomment the following in the pom.xml while building with Oracle GraalVM for JDK 17 and above.
-- Not available in older versions of GraalVM. Comment the following in the pom.xml while building with older versions of GraalVM.
-
-```
-<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>
-```
-
-### [Optional] Capture reachability metadata
-
-You'll need this step only if you run into issues related to missing metadata and need to use the tracing agent to capture metadata for each scenario.
-
-#### Valid Compartment OCID
-
-```
-java -agentlib:native-image-agent=config-merge-dir=temp/META-INF/native-image -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
-```
-
-#### Invalid Compartment OCID
-
-```
-java -agentlib:native-image-agent=config-merge-dir=temp/META-INF/native-image -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
-```
-
-Move/merge the metadata in `src/main/resources/META-INF/native-image` before building a native executable.
-
-
 ### Build native executable
 
-```
+``` shell
 ./mvnw -Pnative -DskipTests package
 ```
-
 
 ### Run native executable
 
 #### Valid Compartment OCID
 
-```
+``` shell
 time ./target/my-app ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
 ```
 
 #### Invalid Compartment OCID
 
-```
+``` shell
 time ./target/my-app abcd
 ```
 
 ## File size
 
-```
+``` shell
 ls -lh target | grep my-app
 ```
 
 The output should be similar to:
 
-```
--rwxr-xr-x  1 user  group    64M Aug 10 10:49 my-app
--rw-r--r--  1 user  group    21M Aug 10 10:42 my-app-1.0-SNAPSHOT-jar-with-dependencies.jar
+``` shell
+-rwxr-xr-x  1 user  group    63M Nov  7 10:59 my-app
+-rw-r--r--  1 user  group    22M Nov  7 10:55 my-app-1.0-SNAPSHOT-jar-with-dependencies.jar
 ...
 ```
 
+## Appendix
 
-## Troubleshooting
+### Appendix 1: [Optional] Use Tracing Agent to capture missing reachability metadata
+
+You'll need this solution only if you run into missing metadata issues (especially with third party libraries that do not include reflection metadata bundled inside the jar files). You can use the Tracing Agent to capture metadata for each scenario.
+
+#### Valid Compartment OCID
+
+``` shell
+java -agentlib:native-image-agent=config-merge-dir=temp/META-INF/native-image -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar ocid1.compartment.oc1..aaaaaaaauivfa3pu7pcn6yslq2ibww566heqmbeo36ah3vzhm6muyospeqba
+```
+
+#### Invalid Compartment OCID
+
+``` shell
+java -agentlib:native-image-agent=config-merge-dir=temp/META-INF/native-image -jar target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar abcd
+```
+
+Move/merge the metadata to `src/main/resources/META-INF/native-image` before building a native executable.
+
+### Appendix 2: Troubleshooting
 
 1. The Jar build fails with the following error:
 
-```
+``` shell
 [ERROR] Unknown lifecycle phase "$USER_HOME_DIR/.m2".
 ```
 
 Solution:
 
-```
+``` shell
 $ env | grep HOME
 ...
 MAVEN_CONFIG=$USER_HOME_DIR/.m2
@@ -148,7 +146,7 @@ $ unset MAVEN_CONFIG
 
 2. Native image build fails with `java.lang.ClassNotFoundException: org.apache.commons.logging.impl.LogFactoryImpl`.
 
-```
+``` shell
 Exception in thread "main" java.lang.ExceptionInInitializerError
         at org.apache.http.conn.ssl.SSLConnectionSocketFactory.<clinit>(SSLConnectionSocketFactory.java:151)
         at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.getDefaultRegistry(PoolingHttpClientConnectionManager.java:116)
@@ -184,12 +182,11 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.logging.impl.Log
         ... 23 more
 ```
 
-Solution: Missing reachability metadata. Use tracing agent to generate it.
-
+Solution: Check the version of the OCI SDK JAR files should be 3.28.0 or later. If you still get this error, file an issue with the details. Try using the Tracing Agent to generate the missing reachability metadata. Run the native-image build again with the generated metadata.
 
 3. Native image build fails with the following error with Oracle GraalVM for JDK 17 and above:
 
-```
+``` shell
 Error: Class-path entry file:///Users/user/.m2/repository/org/graalvm/sdk/graal-sdk/21.3.1/graal-sdk-21.3.1.jar contains class org.graalvm.nativeimage.impl.CTypeConversionSupport. This class is part of the image builder itself (in jrt:/org.graalvm.sdk) and must not be passed via -cp. This can be caused by a fat-jar that illegally includes svm.jar (or graal-sdk.jar) due to its build-time dependency on it. As a workaround, -H:+AllowDeprecatedBuilderClassesOnImageClasspath allows turning this error into a warning. Note that this option is deprecated and will be removed in a future version.
 com.oracle.svm.core.util.UserError$UserException: Class-path entry file:///Users/user/.m2/repository/org/graalvm/sdk/graal-sdk/21.3.1/graal-sdk-21.3.1.jar contains class org.graalvm.nativeimage.impl.CTypeConversionSupport. This class is part of the image builder itself (in jrt:/org.graalvm.sdk) and must not be passed via -cp. This can be caused by a fat-jar that illegally includes svm.jar (or graal-sdk.jar) due to its build-time dependency on it. As a workaround, -H:+AllowDeprecatedBuilderClassesOnImageClasspath allows turning this error into a warning. Note that this option is deprecated and will be removed in a future version.
         at com.oracle.svm.core.util.UserError.abort(UserError.java:73)
@@ -210,12 +207,11 @@ com.oracle.svm.driver.NativeImage$NativeImageError
 [INFO] ------------------------------------------------------------------------
 ```
 
-Solution: Add `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` to the pom.xml before running the native image build with Oracle GraalVM for JDK 17 and above.
-
+Solution: If you get this error, file an issue with the details. Add `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` to the pom.xml before running the native image build with Oracle GraalVM for JDK 17 and above.
 
 4. Native image build fails with the following error with GraalVM Enterprise Edition 22.3.x and lower:
 
-```
+``` shell
 Error: Could not find option 'AllowDeprecatedBuilderClassesOnImageClasspath'. Use -H:PrintFlags= to list all available options.
 Error: Image build request failed with exit status 1
 com.oracle.svm.driver.NativeImage$NativeImageError: Image build request failed with exit status 1
@@ -225,13 +221,11 @@ com.oracle.svm.driver.NativeImage$NativeImageError: Image build request failed w
         at org.graalvm.nativeimage.driver/com.oracle.svm.driver.NativeImage.main(NativeImage.java:1374)
 ```
 
-Solution: Comment `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` in the pom.xml before running the native image build with GraalVM Enterprise Edition 22.3.x and lower.
-
-
+Solution: If you get this error, file an issue with the details. Comment `<arg>-H:+AllowDeprecatedBuilderClassesOnImageClasspath</arg>` in the pom.xml before running the native image build with GraalVM Enterprise Edition 22.3.x and lower.
 
 5. Native image build fails with `DARWIN does not support building static executable images` on MacOS.
 
-```
+``` shell
 [1/8] Initializing...                                                                                    (7.1s @ 0.22GB)
  Java version: 17.0.7+8-LTS, vendor version: Oracle GraalVM 17.0.7+8.1
  Graal compiler: optimization level: b, target machine: x86-64-v3, PGO: off
@@ -270,7 +264,7 @@ Solution: Comment `<arg>-H:+StaticExecutableWithDynamicLibC</arg>` in the pom.xm
 
 6. Native image build fails with the following error:
 
-```
+``` shell
 [1/8] Initializing...                                                                                    (0.0s @ 0.16GB)
 ------------------------------------------------------------------------------------------------------------------------
                         0.3s (5.9% of total time) in 11 GCs | Peak RSS: 0.61GB | CPU load: 4.47
@@ -306,23 +300,22 @@ com.oracle.svm.driver.NativeImage$NativeImageError
 
 Solution: Add the following to your pom.xml:
 
-```
+``` xml
               <environment>
                 <USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM>false</USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM>
               </environment>
 ```
 
-
 7. In case of invalid compartment OCID, native executable fails to run with the following error:
 
-```
+``` shell
 Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.oracle.bmc.http.internal.ResponseHelper$ErrorCodeAndMessage` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
  at [Source: (org.glassfish.jersey.message.internal.ReaderInterceptorExecutor$UnCloseableInputStream); line: 2, column: 3]
 ```
 
 Solution: Add the following element to your reflect-config.json:
 
-```
+``` json
   {
     "name":"com.oracle.bmc.http.internal.ResponseHelper$ErrorCodeAndMessage",
     "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.util.Map"] }]
@@ -331,7 +324,7 @@ Solution: Add the following element to your reflect-config.json:
 
 8. In case of Instance Principals authentication, Native executable fails to run with the following error:
 
-```
+``` shell
 Exception in thread "main" java.lang.IllegalArgumentException: The metadata service url is invalid.
         at com.oracle.bmc.auth.AbstractFederationClientAuthenticationDetailsProviderBuilder.autoDetectCertificatesUsingMetadataUrl(AbstractFederationClientAuthenticationDetailsProviderBuilder.java:333)
         at com.oracle.bmc.auth.AbstractFederationClientAuthenticationDetailsProviderBuilder.autoDetectUsingMetadataUrl(AbstractFederationClientAuthenticationDetailsProviderBuilder.java:254)
